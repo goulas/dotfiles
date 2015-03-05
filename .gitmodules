@@ -1,0 +1,6 @@
+[submodule "3rdparty/mscoutermarsh-dotfiles"]
+	path = 3rdparty/mscoutermarsh-dotfiles
+	url = https://github.com/mscoutermarsh/dotfiles.git
+[submodule "3rdparty/thoughtbot-dotfiles"]
+	path = 3rdparty/thoughtbot-dotfiles
+	url = https://github.com/thoughtbot/dotfiles.git
