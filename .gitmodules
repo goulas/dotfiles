@@ -4,3 +4,6 @@
 [submodule "3rdparty/thoughtbot-dotfiles"]
 	path = 3rdparty/thoughtbot-dotfiles
 	url = https://github.com/thoughtbot/dotfiles.git
+[submodule "3rdparty/chase-seibert-dotfiles"]
+	path = 3rdparty/chase-seibert-dotfiles
+	url = http://github.com/chase-seibert/dotfiles.git
