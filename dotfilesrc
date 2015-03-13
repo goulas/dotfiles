@@ -1,0 +1,13 @@
+[dotfiles]
+repository = /home/goulas/Documents/dotfiles
+ignore = [
+        '.git',
+        '3rdparty',
+        'bin',
+        'tools',
+        '.gitignore',
+        '.gitmodules',
+        'install.sh',
+        'README.md',
+        'resources.txt'
+    ]
