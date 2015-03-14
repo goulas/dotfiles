@@ -4,6 +4,5 @@
 http://dotfiles.github.io
 
 dotfiles Easily manage your dotfiles
-https://github.com/jbernard/dotfiles
 https://pypi.python.org/pypi/dotfiles/
 
