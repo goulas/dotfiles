@@ -77,6 +77,17 @@ autocmd FileType sh set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandt
 
 
 """""""""""""""""""""""""""""
+" Settings for NERDTree
+"""""""""""""""""""""""""""""
+" Sync editor - NERDTree pane
+map <Leader>r :NERDTreeFind<CR>:wincmd p<CR>
+" Exit NERDTree if no file is open
+autocmd bufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" Open NERDTree with C-o
+map <C-o> :NERDTreeToggle<CR>
+
+
+"""""""""""""""""""""""""""""
 " Reload vimrc on save
 """""""""""""""""""""""""""""
 augroup myvimrc
