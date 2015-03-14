@@ -7,3 +7,6 @@
 [submodule "3rdparty/chase-seibert-dotfiles"]
 	path = 3rdparty/chase-seibert-dotfiles
 	url = http://github.com/chase-seibert/dotfiles.git
+[submodule "vim/bundle/Vundle.vim"]
+	path = vim/bundle/Vundle.vim
+	url = https://github.com/gmarik/Vundle.vim.git

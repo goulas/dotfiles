@@ -9,15 +9,31 @@ set nocompatible            " Enable vim enhancements
 set visualbell              " Disable beeps
 colorscheme desert          " Set colorscheme
 set mouse=a                 " Use mouse integration
+set hlsearch                " Hilight search results
 syntax on                   " Enable syntax highlighting
+
+"""""""""""""""""""""""""""""
+" Vundle
+" Brief help for Vundle
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"""""""""""""""""""""""""""""
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin("~/.vim/bundle/plugins")
+    Plugin 'gmarik/Vundle.vim'
+    Plugin 'scrooloose/nerdtree.git'
+    Plugin 'ctrlp.vim'
+call vundle#end()
+filetype indent plugin on
 
 """""""""""""""""""""""""""""
 " Modeline
 """""""""""""""""""""""""""""
 set modelines=5
 set modeline
-filetype indent plugin on
-
 
 """""""""""""""""""""""""""""
 " Color column on column 80

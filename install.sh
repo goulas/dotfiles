@@ -14,4 +14,6 @@ cp dotfilesrc ~/.dotfilesrc
 tools/fix_dotfilesrc_repo.sh
 dotfiles --add ~/.dotfilesrc
 
+echo -e "\nInstalling vim plugins"
+vim +PluginInstall +qall
 #dotfiles --sync -R ~/.dotfiles
