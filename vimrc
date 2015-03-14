@@ -26,6 +26,7 @@ call vundle#begin("~/.vim/bundle/plugins")
     Plugin 'gmarik/Vundle.vim'
     Plugin 'scrooloose/nerdtree.git'
     Plugin 'ctrlp.vim'
+    Plugin 'vim-flake8'
 call vundle#end()
 filetype indent plugin on
 
@@ -53,6 +54,15 @@ exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~,eol:$"
 set list
 highlight NonText guifg=#4a4a59 guibg=grey20    " color for newline
 highlight SpecialKey guifg=#4a4a59              " color for tab
+
+"""""""""""""""""""""""""""""
+" Settings for file types
+"""""""""""""""""""""""""""""
+autocmd FileType python set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
+autocmd FileType python set fileencoding=UTF-8
+autocmd BufWritePost *.py call Flake8()
+autocmd FileType sh set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
+
 
 """""""""""""""""""""""""""""
 " Reload vimrc on save
