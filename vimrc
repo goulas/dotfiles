@@ -27,6 +27,7 @@ call vundle#begin("~/.vim/bundle/plugins")
     Plugin 'scrooloose/nerdtree.git'
     Plugin 'ctrlp.vim'
     Plugin 'vim-flake8'
+    Plugin 'airblade/vim-gitgutter'
 call vundle#end()
 filetype indent plugin on
 
@@ -42,6 +43,17 @@ set modeline
 highlight ColorColumn ctermbg=Gray 
 highlight ColorColumn guibg=#4a4a59
 set colorcolumn=80
+
+"""""""""""""""""""""""""""""
+" GitGutter settings
+"""""""""""""""""""""""""""""
+" Default keys:
+" GitGutterNextHunk ]c
+" GitGutterPrevHunk [c
+" GitGutterStageHunk <Leader>hs
+" GitGutterRevertHunk <Leader>hr
+" GitGutterPreviewHunk <Leader>hp
+highlight clear SignColumn
 
 """""""""""""""""""""""""""""
 " Show invisible characters
