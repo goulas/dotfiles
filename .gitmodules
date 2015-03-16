@@ -13,3 +13,9 @@
 [submodule "3rdparty/jbernard-dotfiles"]
 	path = 3rdparty/jbernard-dotfiles
 	url = https://github.com/jbernard/dotfiles
+[submodule "3rdparty/chrishut-dotfiles"]
+	path = 3rdparty/chrishut-dotfiles
+	url = http://github.com/chrishunt/dot-files
+[submodule "3rdparty/imkmf-dotfiles"]
+	path = 3rdparty/imkmf-dotfiles
+	url = https://github.com/imkmf/dotfiles
