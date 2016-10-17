@@ -4,7 +4,11 @@ ostype=""       #Operating system type
 
 function inst_dotfiles {
     echo -e "\nInstalling dotfiles:"
-    sudo pip install dotfiles
+    if [ $ostype == 'Linux' ]; then
+        sudo pip install dotfiles
+    elif [ $ostype == 'Darwin' ]; then
+        pip install dotfiles
+    fi
 }
 
 function inst_flake8 {
@@ -12,7 +16,7 @@ function inst_flake8 {
     if [ $ostype == 'Linux' ]; then
         sudo apt-get install python-flake8
     elif [ $ostype == 'Darwin' ]; then
-        sudo pip install flake8
+        pip install flake8
     fi
 }
 

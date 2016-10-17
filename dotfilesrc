@@ -1,5 +1,5 @@
 [dotfiles]
-repository = /home/goulas/Documents/dotfiles
+repository = /Users/goulas/Documents/dotfiles
 ignore = [
         '.git',
         '3rdparty',
