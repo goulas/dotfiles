@@ -1,8 +1,12 @@
 #!/bin/bash
-
+set -eu
+set -x
 ostype=""       #Operating system type
 
 function inst_dotfiles {
+    if [ $ostype == 'Linux' ]; then
+        sudo apt-get install -y python-pip
+    fi
     echo -e "\nInstalling dotfiles:"
     if [ $ostype == 'Linux' ]; then
         sudo pip install dotfiles
@@ -36,7 +40,9 @@ inst_flake8
 cp dotfilesrc ~/.dotfilesrc
 tools/fix_dotfilesrc_repo.sh
 dotfiles --add ~/.dotfilesrc
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 
 echo -e "\nInstalling vim plugins"
 vim +PluginInstall +qall
-#dotfiles --sync -R ~/.dotfiles
+dotfiles --sync -R ~/Documents/dotfiles
