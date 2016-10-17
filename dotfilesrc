@@ -8,6 +8,7 @@ ignore = [
         '.gitignore',
         '.gitmodules',
         'install.sh',
+        'refresh.sh',
         'README.md',
         'resources.txt'
     ]
