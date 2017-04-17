@@ -37,10 +37,10 @@ get_ostype
 inst_dotfiles
 inst_flake8
 
-cp dotfilesrc ~/.dotfilesrc
+[[ ! -f ~/.dotfilesrc ]] && cp dotfilesrc ~/.dotfilesrc
 tools/fix_dotfilesrc_repo.sh
 dotfiles --add ~/.dotfilesrc
-[[ -d ~/.vim/bundle/Vundle.vim ]] && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+[[ ! -d ~/.vim/bundle/Vundle.vim ]] && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 
 echo -e "\nInstalling vim plugins"

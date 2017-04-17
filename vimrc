@@ -12,8 +12,7 @@ set visualbell              " Disable beeps
 set mouse=a                 " Use mouse integration
 set hlsearch                " Hilight search results
 syntax on                   " Enable syntax highlighting
-"set background=dark
-
+set encoding=utf-8
 
 """""""""""""""""""""""""""""
 " Vundle
@@ -30,11 +29,17 @@ call vundle#begin("~/.vim/bundle/plugins")
     Plugin 'scrooloose/nerdtree.git'
     Plugin 'ctrlp.vim'
     Plugin 'vim-flake8'
-    Plugin 'airblade/vim-gitgutter'
+    Plugin 'airblade/vim-gitgutter'  " Shows git status symbols in the gutter
     Plugin 'altercation/vim-colors-solarized'
     Plugin 'tmhedberg/SimpylFold'
     Plugin 'NLKNguyen/vim-maven-syntax'
     Plugin 'Conque-shell'
+    Plugin 'surround.vim'
+    Plugin 'benmills/vimux'
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+    Plugin 'Xuyuanp/nerdtree-git-plugin'
 call vundle#end()
 filetype indent plugin on
 
@@ -46,7 +51,6 @@ filetype indent plugin on
 
 " Show docstrings of folded code for SimpylFold
 let g:SimpylFold_docstring_preview=1
-
 
 " use 256 colors when possible
 "if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
@@ -61,11 +65,11 @@ let g:SimpylFold_docstring_preview=1
 if has('gui_running')
     "colorscheme wombat
     colorscheme solarized
-    "colorscheme desert          " Set colorscheme
     set background=dark
     let g:solarized_termcolors=256
 else
-    colorscheme solarized
+    "set background=dark
+    colorscheme desert
 endif
 
 """""""""""""""""""""""""""""
@@ -73,6 +77,43 @@ endif
 """""""""""""""""""""""""""""
 set modelines=5
 set modeline
+
+"""""""""""""""""""""""""""""
+" Status line
+"""""""""""""""""""""""""""""
+set laststatus=2
+" airline options
+let g:airline_powerline_fonts=1
+"let g:airline_left_sep=''
+"let g:airline_right_sep=''
+"let g:airline_theme='onedark'
+let g:airline#extensions#tabline#enabled = 1 " enable airline tabline
+"let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
+"let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in tabline
+"let g:airline#extensions#tabline#show_splits = 0
+
+"  let g:airline_symbols.whitespace = 'Ξ'
+"  let g:airline_symbols.branch = '⎇'
+"  let g:airline_left_sep = '▶'
+"  let g:airline_right_sep = '◀'
+
+
+"  if !exists('g:airline_symbols')
+"    let g:airline_symbols = {}
+"  endif
+"  " unicode symbols
+"  let g:airline_left_sep = '»'
+"  let g:airline_left_sep = '▶'
+"  let g:airline_right_sep = '«'
+"  let g:airline_right_sep = '◀'
+"  let g:airline_symbols.linenr = '␊'
+"  let g:airline_symbols.linenr = '␤'
+"  let g:airline_symbols.linenr = '¶'
+"  let g:airline_symbols.branch = '⎇'
+"  let g:airline_symbols.paste = 'ρ'
+"  let g:airline_symbols.paste = 'Þ'
+"  let g:airline_symbols.paste = '∥'
+"  let g:airline_symbols.whitespace = 'Ξ'
 
 """""""""""""""""""""""""""""
 " Color column on column 80
@@ -115,12 +156,24 @@ autocmd FileType sh set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandt
 """""""""""""""""""""""""""""
 " Settings for NERDTree
 """""""""""""""""""""""""""""
+" open NERDTree on vim startup and focus on file window
+autocmd vimenter * NERDTree
+autocmd VimEnter * wincmd p
+
 " Sync editor - NERDTree pane
 map <Leader>r :NERDTreeFind<CR>:wincmd p<CR>
 " Exit NERDTree if no file is open
-autocmd bufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 " Open NERDTree with C-o
 map <C-o> :NERDTreeToggle<CR>
+
+" close NERDTree after a file is opened
+let g:NERDTreeQuitOnOpen=0
+" show hidden files in NERDTree
+let NERDTreeShowHidden=1
+" expand to the path of the file in the current buffer
+nmap <silent> <leader>y :NERDTreeFind<cr>
 
 
 """""""""""""""""""""""""""""
